@@ -6,7 +6,7 @@
   "author": "Waseem Ahmed <codewaseem@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./dist/server",
+    "start": "tsc;node ./dist/server",
     "test": "jest"
   },
   "dependencies": {
@@ -14,11 +14,11 @@
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
+    "graphql-yoga": "^1.1.5",
     "stripe": "^5.4.0",
     "tracer": "^0.8.11"
   },
   "devDependencies": {
-    "@types/async": "^2.0.45",
     "@types/dotenv": "^4.0.2",
     "@types/express": "^4.0.39",
     "@types/jest": "^21.1.8",
