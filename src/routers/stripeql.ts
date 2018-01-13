@@ -6,14 +6,20 @@ import * as bodyParser from "body-parser";
 import * as express from "express";
 import schema from "../schemas/schema";
 
-const stripeQLRouter = express.Router();
+class StripeQL {
+  public static getRouter(root: string) {
+    if (!this.router) {
+      this.router = express.Router();
+      this.router.use("/", graphqlExpress({
+        schema,
+      }));
+      this.router.get("/iql", graphiqlExpress({
+        endpointURL: root + "/",
+      }));
+    }
+    return this.router;
+  }
+  private static router: express.Router;
+}
 
-stripeQLRouter.use("/graphql", graphqlExpress({
-  schema,
-}));
-
-stripeQLRouter.use("/graphiql", graphiqlExpress({
-  endpointURL: "/",
-}));
-
-export default stripeQLRouter;
+export default StripeQL;
