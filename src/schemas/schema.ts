@@ -10,6 +10,10 @@ const typeDefs = `
     customer(id:String!) : Customer!
   }
 
+  type Mutation {
+    addCustomer(email:String) : Customer!
+  }
+
   type Customer {
       id: String,
       object: String,

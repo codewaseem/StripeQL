@@ -10,11 +10,11 @@ class StripeQL {
   public static getRouter(root: string) {
     if (!this.router) {
       this.router = express.Router();
-      this.router.use("/", graphqlExpress({
+      this.router.use("/ql", graphqlExpress({
         schema,
       }));
       this.router.get("/iql", graphiqlExpress({
-        endpointURL: root + "/",
+        endpointURL: root + "/ql",
       }));
     }
     return this.router;
